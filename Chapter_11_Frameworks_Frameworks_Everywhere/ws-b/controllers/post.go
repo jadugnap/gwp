@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"strconv"
-	"fmt"
-	"github.com/sausheong/ws-b/models"
 	"encoding/json"
+	"strconv"
+
+	"github.com/jadugnap/gwp/Chapter_11_Frameworks_Frameworks_Everywhere/ws-b/models"
 
 	"github.com/astaxie/beego"
 )
@@ -64,7 +64,7 @@ func (p *PostController) Put() {
 	id, _ := strconv.ParseInt(p.Ctx.Input.Params[":id"], 10, 64)
 	post := &models.Posts{Id: id}
 	json.Unmarshal(p.Ctx.Input.RequestBody, post)
-	
+
 	err := models.UpdatePost(post)
 	if err != nil {
 		p.Data["json"] = err
@@ -83,9 +83,8 @@ func (p *PostController) Put() {
 func (p *PostController) Delete() {
 	id, _ := strconv.ParseInt(p.Ctx.Input.Params[":id"], 10, 64)
 	post := &models.Posts{Id: id}
-	json.Unmarshal(p.Ctx.Input.RequestBody, post)	
+	json.Unmarshal(p.Ctx.Input.RequestBody, post)
 	models.DeletePost(post)
 	p.Data["json"] = "delete success!"
 	p.ServeJson()
 }
-

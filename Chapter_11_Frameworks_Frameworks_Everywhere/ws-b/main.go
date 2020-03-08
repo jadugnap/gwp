@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "github.com/sausheong/ws-b/docs"
-	_ "github.com/sausheong/ws-b/routers"
+	_ "github.com/jadugnap/gwp/Chapter_11_Frameworks_Frameworks_Everywhere/ws-b/docs"
+	_ "github.com/jadugnap/gwp/Chapter_11_Frameworks_Frameworks_Everywhere/ws-b/routers"
 
 	"github.com/astaxie/beego"
 )

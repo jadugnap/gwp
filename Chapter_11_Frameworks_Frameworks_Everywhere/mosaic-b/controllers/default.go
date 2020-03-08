@@ -11,8 +11,9 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
 	"github.com/astaxie/beego"
-	"github.com/sausheong/mosaic-b/mosaic"
+	"github.com/jadugnap/gwp/Chapter_11_Frameworks_Frameworks_Everywhere/mosaic-b/mosaic"
 )
 
 type MainController struct {
@@ -29,7 +30,7 @@ func (c *MainController) Post() {
 	file, _, _ := c.GetFile("image")
 	defer file.Close()
 	tileSize, _ := strconv.Atoi(c.GetString("tile_size"))
-	
+
 	// decode and get original image
 	original, _, _ := image.Decode(file)
 	bounds := original.Bounds()
@@ -51,7 +52,7 @@ func (c *MainController) Post() {
 	t1 := time.Now()
 	c.Data["original"] = originalStr
 	c.Data["mosaic"] = <-ch
-	c.Data["duration"] = fmt.Sprintf("%v ", t1.Sub(t0))	
+	c.Data["duration"] = fmt.Sprintf("%v ", t1.Sub(t0))
 	c.TplNames = "results.html"
 }
 

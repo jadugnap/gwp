@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/sausheong/ws-goji/post"
+	"github.com/jadugnap/gwp/Chapter_11_Frameworks_Frameworks_Everywhere/ws-goji/post"
 	"github.com/zenazn/goji"
-
 )
 
 func main() {
